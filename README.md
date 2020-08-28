@@ -22,22 +22,23 @@ The client was specifically tested for **Mac OS**  and **Linux**.
 
 ### Instructions
 
- * Build:  
+ * Direct launch:  
+```bash
+mvn exec:java
+```
+
+ * Build a self contained jar:  
 ```bash
 mvn clean package
 ```
 
- * Start a new game:  
+ * Start from self-contained jar:  
 
 ```bash
 java -jar target/AcquireBanker.jar
 ```
 
- * Load a previously saved game:
-
-```bash
-java -jar target/AcquireBanker.jar SAVEGAME
-```
+Optionally you can pass a ```SAVEGAME``` as first runtime argument, to restore a previously saved game.
 
  > Note: ```SAVEGAME``` is the absolute file path of a previously automatically saved game in your ```TMPDIR```. Use ```echo $TMPDIR``` to locate the savegames.
 
