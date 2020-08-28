@@ -35,7 +35,7 @@ public class Company implements CompanyInterface {
     /**
      * increases the companies size and therefore influences its stock value
      *
-     * @param amount
+     * @param amount as the number of tiles by which the company grows
      */
     public void increaseCompany(int amount) {
         //System.out.println("increasing by: "+amount);

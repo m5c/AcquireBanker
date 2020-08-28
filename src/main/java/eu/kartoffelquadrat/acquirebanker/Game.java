@@ -70,9 +70,9 @@ public class Game {
     /**
      * loads a game state from a xml file
      *
-     * @param path
-     * @return
-     * @throws IOException
+     * @param path as the absolute path to a previously created game-save file.
+     * @return a game object for the newly created game entity.
+     * @throws IOException in case the provided save-game could not be parsed or interpreted
      */
     public static Game load(String path) throws IOException {
         XStream stream = new XStream(new StaxDriver());
@@ -87,7 +87,8 @@ public class Game {
      * use this method to kick on a loaded or new game the initial player is either the first player or the "current
      * player" extracted from the loaded game file
      *
-     * @throws IOException
+     * @param hopIn as a helper parementer to determine whether a round is currently in progress that mus be re-joined
+     * @throws IOException in case there was an error while implicitly creating a save-game
      */
     public void continueGame(boolean hopIn) throws IOException {
         //perform rounds until one company has reached a size of 41/+ tiles
