@@ -46,7 +46,7 @@ java -jar target/AcquireClient.jar SAVEGAME
 The entire banker runs interaction / dialogue based.
 
  * When initializing a new game, provide the player amount as a number, e.g. ```3```. Then type the player names, separated by ```return```.
- * When asked for a company name / names, abbreviate them  with theirfirstletter.  
+ * When asked for a company name / names, abbreviate them with the first letter.  
 Examples:
    * Buying two *Sackson* and a *Festival* share: ```ssf```
    * Funding the *Continental* chain: ```c```
