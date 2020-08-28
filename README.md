@@ -36,8 +36,10 @@ java -jar target/AcquireClient.jar
  * Load a previously saved game:
 
 ```bash
-java -jar target/AcquireClient.jar
+java -jar target/AcquireClient.jar SAVEGAME
 ```
+
+ > Note: ```SAVEGAME``` is the absolute file path of a previously automatically saved game in your ```TMPDIR```. Use ```echo $TMPDIR``` to locate the savegames.
 
 ## Usage
 
