@@ -18,7 +18,7 @@ The following sections provide brief instructions on how to compile and use the 
 
  * While the banker-software is a Java program and as such compatible to any platform that supports a JDK, the output uses terminal color codes that are only correctly displayed on UNIX like systems.  
 The client was specifically tested for **Mac OS**  and **Linux**.
- * JDK-8 or later is required.
+ * JDK-11 or later is required.
 
 ### Instructions
 
