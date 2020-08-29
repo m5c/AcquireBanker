@@ -22,19 +22,17 @@ The client was specifically tested for **Mac OS**  and **Linux**.
 
 ### Instructions
 
+There are two ways to power up the Banker:  
+
  * Direct launch:  
 ```bash
 mvn exec:java
 ```
 
- * Build a self contained jar:  
+ * Launch from a reusable self-contained JAR:  
+
 ```bash
 mvn clean package
-```
-
- * Start from self-contained jar:  
-
-```bash
 java -jar target/AcquireBanker.jar
 ```
 
