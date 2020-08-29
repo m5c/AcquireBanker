@@ -18,7 +18,9 @@ The following sections provide brief instructions on how to compile and use the 
 
  * While the banker-software is a Java program and as such compatible to any platform that supports a JDK, the output uses terminal color codes that are only correctly displayed on UNIX like systems.  
 The client was specifically tested for **Mac OS**  and **Linux**.
- * JDK 8 or higher is required.
+ * JAVA_HOME must point to a JDK-8 installation (XStream does not fully support more recent versions.)
+   * Ubuntu / Linux: ```export JAVA_HOME=/usr/lib/jvm/java-8-openjdk```
+   * Mac OS: ```export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)```
 
 ### Instructions
 
