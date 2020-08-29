@@ -8,10 +8,11 @@
     <name>acquirebanker</name>
     <url>http://maven.apache.org</url>
 
+    <!--    ensure your java_home points to at least version 14. E.g. with: export JAVA_HOME=$(/usr/libexec/java_home -v 14) -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>14</maven.compiler.target>
+        <maven.compiler.source>14</maven.compiler.source>
     </properties>
 
     <!-- main developer -->
@@ -34,17 +35,21 @@
     </licenses>
 
     <dependencies>
-        <dependency>
-            <groupId>com.thoughtworks.xstream</groupId>
-            <artifactId>xstream</artifactId>
-            <version>1.4.12</version>
-        </dependency>
-        <dependency>
-            <groupId>xmlpull</groupId>
-            <artifactId>xmlpull</artifactId>
-            <version>1.1.3.1</version>
-        </dependency>
-
+                <dependency>
+                    <groupId>com.thoughtworks.xstream</groupId>
+                    <artifactId>xstream</artifactId>
+                    <version>1.4.12</version>
+                </dependency>
+                <dependency>
+                    <groupId>xmlpull</groupId>
+                    <artifactId>xmlpull</artifactId>
+                    <version>1.1.3.1</version>
+                </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.google.code.gson</groupId>-->
+<!--            <artifactId>gson</artifactId>-->
+<!--            <version>2.8.6</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -57,8 +62,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>14</source>
+                    <target>14</target>
                 </configuration>
             </plugin>
 
@@ -79,19 +84,31 @@
                 </configuration>
             </plugin>
 
-            <!-- specify main class for JAR manifest-->
+            <!--            build self contained jar as default package / install goal-->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <archive>
                         <manifest>
+                            <addClasspath>true</addClasspath>
                             <mainClass>eu.kartoffelquadrat.acquirebanker.Main</mainClass>
                         </manifest>
                     </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <finalName>AcquireBanker</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
             </plugin>
-	</plugins>
+        </plugins>
     </build>
 </project>
