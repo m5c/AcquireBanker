@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  */
 class Shell {
 
-    public String[] getPLayers() {
+    public String[] getPlayers() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         //get number of players

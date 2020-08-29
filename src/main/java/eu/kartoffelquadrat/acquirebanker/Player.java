@@ -12,6 +12,7 @@ public class Player implements PlayerInterface {
     String name;
     int balance;
     ShareCollectionInterface ownedShares;
+    private String polyMorphicSubType = "Player";
 
     Player(String name, ShareCollectionInterface masterCollection) {
         this.name = name;

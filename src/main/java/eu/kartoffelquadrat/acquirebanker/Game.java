@@ -4,10 +4,11 @@
  */
 package eu.kartoffelquadrat.acquirebanker;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.StaxDriver;
+import com.google.gson.Gson;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.LinkedList;
 
 /**
@@ -33,7 +34,21 @@ public class Game {
     private boolean end = false;
     private int roundCounter = 0;
 
-    Game() {
+    /**
+     * Empty default constructor (required for GSON.)
+     */
+    public Game() {
+        System.out.println("Def ctr.");
+    }
+
+    /**
+     * The boolean parameter is only to overload this constructor and distinguish it from the GSON required default
+     * constructor.
+     *
+     * @param init
+     */
+    Game(boolean init) {
+
         //set initial share stock
         for (int i = 0; i < companies.length; i++) {
             //12 shares per company - in this case it is legal to use the master method
@@ -59,7 +74,7 @@ public class Game {
         hotelBoard = new Board(companyNames, colours);
 
         //get player names
-        String[] playerNames = interaction.getPLayers();
+        String[] playerNames = interaction.getPlayers();
         players = new PlayerInterface[playerNames.length];
         for (int i = 0; i < playerNames.length; i++) {
             players[i] = new Player(playerNames[i], masterShares);
@@ -68,29 +83,32 @@ public class Game {
     }
 
     /**
-     * loads a game state from a xml file
+     * loads a game state from a JSON file
      *
      * @param path as the absolute path to a previously created game-save file.
      * @return a game object for the newly created game entity.
      * @throws IOException in case the provided save-game could not be parsed or interpreted
      */
-    public static Game load(String path) throws IOException {
-        XStream stream = new XStream(new StaxDriver());
-        InputStream inputStream = new FileInputStream(path);
-        Game result = (Game) stream.fromXML(inputStream);
-        inputStream.close();
+    public static Game load(String path) {
 
-        return result;
+        String jsonString = null;
+        try {
+            jsonString = Files.readString(Path.of(path));
+        } catch (IOException e) {
+            throw new RuntimeException("Unable to load file: " + path);
+        }
+        Game loadedGame = (Game) DeSerTools.getDeSerGson().fromJson(jsonString, Game.class);
+        return loadedGame;
     }
 
     /**
      * use this method to kick on a loaded or new game the initial player is either the first player or the "current
      * player" extracted from the loaded game file
      *
-     * @param hopIn as a helper parementer to determine whether a round is currently in progress that mus be re-joined
+     * @param hopIn as a helper parameter to determine whether a round is currently in progress that mus be re-joined
      * @throws IOException in case there was an error while implicitly creating a save-game
      */
-    public void continueGame(boolean hopIn) throws IOException {
+    public void continueGame(boolean hopIn) {
         //perform rounds until one company has reached a size of 41/+ tiles
         while (!end) {
             if (hopIn) {
@@ -111,16 +129,16 @@ public class Game {
         interaction.gameOver(players);
     }
 
-    private void round(int startPlayer) throws IOException {
+    private void round(int startPlayer) {
         for (currentPlayer = startPlayer; currentPlayer < players.length; currentPlayer++) {
             if (!end) {
-                save(Main.savePath + File.separatorChar + "acquire-" + roundCounter + "-" + (currentPlayer + 1) + ".xml");
+                save(Main.savePath + File.separatorChar + "acquire-" + roundCounter + "-" + (currentPlayer + 1) + ".json");
                 turn(currentPlayer);
             }
         }
     }
 
-    private void turn(int playerIndex) throws IOException {
+    private void turn(int playerIndex) {
         //print info
         interaction.printInfo(roundCounter, players[playerIndex].getName(), companies, masterShares, players, hotelBoard);
 
@@ -382,10 +400,6 @@ public class Game {
                 }
 
                 if (players[currentPlayer].getBalance() < requiredMoney) {
-                    //System.out.println("you have: " + players[currentPlayer].getBalance());
-                    //System.out.println("you need: " + requiredMoney);
-
-                    //TODO                   //own method here
                     interaction.printUserInformation("You have insufficient funds!");
                     fine = false;
                 }
@@ -579,7 +593,7 @@ public class Game {
      * to major shareholder one mejaor multiple second -> major to major and equal parts of second to each of second
      * shareholder
      *
-     * @param looserindex as index of the sold company
+     * @param looserIndex as index of the sold company
      * @return 2d array: in x: users, in y: amount
      */
     private void applyBoni(int looserIndex) {
@@ -725,10 +739,19 @@ public class Game {
         }
     }
 
-    public void save(String path) throws IOException {
-        XStream stream = new XStream(new StaxDriver());
-        OutputStream outputStream = new FileOutputStream(path);
-        stream.toXML(this, outputStream);
-        outputStream.close();
+    /**
+     * Persists the current game state to disk as a JSON object.
+     *
+     * @param path as the save location
+     * @throws IOException in case the write process failed.
+     */
+    public void save(String path) {
+        String jsonString = DeSerTools.getDeSerGson().toJson(this);
+
+        try {
+            Files.writeString(Path.of(path), jsonString);
+        } catch (IOException e) {
+            throw new RuntimeException("Unable to write savegame to: " + path);
+        }
     }
 }

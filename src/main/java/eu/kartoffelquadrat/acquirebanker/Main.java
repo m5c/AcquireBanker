@@ -19,7 +19,7 @@ public class Main {
     public static int numberOfCompanies = 7;
     public static int finalLimit = 41;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         //clear screen
         System.out.print(((char) 27) + "[2J" + ((char) 27) + "[H");
         System.out.println("\u001B[31;1m Acquire - " + version + " \u001B[m");
@@ -27,7 +27,7 @@ public class Main {
 
         //start either new game with the info as param that it is a new game or
         //restart an old game with the information, that the game is to be continued
-        //- this is relevat to the behavier of the round counter
-        (args.length == 0 ? new Game() : Game.load(args[0])).continueGame(args.length != 0);
+        //- this is relevant to the behaviour of the round counter
+        (args.length == 0 ? new Game(true) : Game.load(args[0])).continueGame(args.length != 0);
     }
 }

@@ -4,6 +4,8 @@
  */
 package eu.kartoffelquadrat.acquirebanker;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * @author Max Schiedermeier
  */
