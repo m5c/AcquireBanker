@@ -52,6 +52,13 @@ Examples:
  * When asked for a position, provide a single word that encodes the coordinates.  
 Example: 4-B is  provided as ```4b```
 
+### Loading
+
+ * Savegames are automatically placed in the OS tmpdir.  
+    * On MacOS this is an application specific sandbox in ```/var/folders/...```.  
+Find it with ```find /var/folders/ | grep acquire | grep json```
+ * To load a savegame, simply start the JAR with path to savegame as first argument.
+
 ## Contact / Pull Requests
 
  * Author: Maximilian Schiedermeier ![email](email.png)
