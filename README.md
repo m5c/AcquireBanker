@@ -56,7 +56,7 @@ Example: 4-B is  provided as ```4b```
 
  * Savegames are automatically placed in the OS tmpdir.  
     * On MacOS this is an application specific sandbox in ```/var/folders/...```.  
-Find it with ```find /var/folders/ | grep acquire | grep json```
+Find it with ```find /var/folders/*/*/*/acquire*```
  * To load a savegame, simply start the JAR with path to savegame as first argument.
 
 ## Contact / Pull Requests
