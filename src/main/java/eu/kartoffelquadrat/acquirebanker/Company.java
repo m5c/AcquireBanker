@@ -8,7 +8,7 @@ package eu.kartoffelquadrat.acquirebanker;
 public class Company implements CompanyInterface {
 
     private String companyName;
-    //the index is a number from 0 to 6 (depending on array position in super structure)
+    // The index is a number from 0 to 6 (depending on array position in super structure)
     private int companyIndex;
     private CompanyType companyType;
     private int size = 0;
@@ -19,7 +19,7 @@ public class Company implements CompanyInterface {
         this.companyType = type;
     }
 
-    //see interface
+    // See interface
     public int getShareValue() {
         return companyType.getValueForSize(size);
     }
@@ -38,7 +38,6 @@ public class Company implements CompanyInterface {
      * @param amount as the number of tiles by which the company grows
      */
     public void increaseCompany(int amount) {
-        //System.out.println("increasing by: "+amount);
         size = size + amount;
     }
 
@@ -75,34 +74,27 @@ public class Company implements CompanyInterface {
     }
 
     public int getColour() {
-        if (companyName.equals("Worldwide")) {
+        if (companyName.equals("Worldwide"))
             return 200;
-        } else {
-            if (companyName.equals("Sackson")) {
-                return 208;
-            } else {
-                if (companyName.equals("Festival")) {
-                    return 40;
-                } else {
-                    if (companyName.equals("Imperial")) {
-                        return 184;
-                    } else {
-                        if (companyName.equals("American")) {
-                            return 27;
-                        } else {
-                            if (companyName.equals("Tower")) {
-                                return 253;
-                            } else {
-                                if (companyName.equals("Continental")) {
-                                    return 124;
-                                } else {
-                                    throw new RuntimeException("Unknown Company: " + companyName);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+
+        if (companyName.equals("Sackson"))
+            return 208;
+
+        if (companyName.equals("Festival"))
+            return 40;
+
+        if (companyName.equals("Imperial"))
+            return 184;
+
+        if (companyName.equals("American"))
+            return 27;
+
+        if (companyName.equals("Tower"))
+            return 253;
+
+        if (companyName.equals("Continental"))
+            return 124;
+
+        throw new RuntimeException("Unknown Company: " + companyName);
     }
 }
