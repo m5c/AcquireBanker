@@ -10,12 +10,12 @@ import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
 public class DeSerTools {
 
   /**
-   * Creates a custom JSON object that is capable of resolving the Interface implementatinos to the
+   * Creates a custom JSON object that is capable of resolving the Interface implementations to the
    * precise polymorphic subtype. This ONLY WORKS IF THE JSON HAS BEEN SERIALIZED WITH THIS CUSTOM
    * GSON object, too!
    * <p>
    * Note: No extra code is required in the interfaces / implementing classes, for there is always
-   * only a single interface impelmentation around.
+   * only a single interface impelementation around.
    *
    * @return polymorphic-enabled custom GSON object.
    */
