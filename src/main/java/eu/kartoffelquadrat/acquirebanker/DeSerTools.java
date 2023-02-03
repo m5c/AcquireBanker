@@ -15,7 +15,7 @@ public class DeSerTools {
    * GSON object, too!
    * <p>
    * Note: No extra code is required in the interfaces / implementing classes, for there is always
-   * only a single interface impelementation around.
+   * only a single interface implementation around.
    *
    * @return polymorphic-enabled custom GSON object.
    */
