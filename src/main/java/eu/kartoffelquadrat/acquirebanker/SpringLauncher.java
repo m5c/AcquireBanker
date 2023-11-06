@@ -9,7 +9,7 @@ public class SpringLauncher {
 
   // This literally just starts up the old launcher.
   public static void main(String[] args) {
-    Main.main(new String[] {});
+    Main.main(args);
   }
 
 }
