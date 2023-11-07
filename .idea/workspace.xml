@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="591d56fe-bb2f-4a29-a14f-48fac046e614" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/eu/kartoffelquadrat/acquirebanker/GameManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/kartoffelquadrat/acquirebanker/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/kartoffelquadrat/acquirebanker/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/kartoffelquadrat/acquirebanker/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/kartoffelquadrat/acquirebanker/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/kartoffelquadrat/acquirebanker/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/kartoffelquadrat/acquirebanker/LocalMainLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/kartoffelquadrat/acquirebanker/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/kartoffelquadrat/acquirebanker/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/kartoffelquadrat/acquirebanker/ShareCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/kartoffelquadrat/acquirebanker/ShareCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/kartoffelquadrat/acquirebanker/ShareCollectionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/kartoffelquadrat/acquirebanker/ShareCollectionInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/kartoffelquadrat/acquirebanker/SpringLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/kartoffelquadrat/acquirebanker/SpringLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +143,7 @@
       <option name="presentableId" value="Default" />
       <updated>1699310537388</updated>
       <workItem from="1699310538537" duration="4543000" />
-      <workItem from="1699315098462" duration="115000" />
+      <workItem from="1699315098462" duration="441000" />
     </task>
     <servers />
   </component>

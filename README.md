@@ -26,7 +26,9 @@ There are two ways to power up the Banker:
 
  * Direct launch:  
 ```bash
-mvn exec:java
+clean package spring-boot:run
+# or
+clean package spring-boot:run -Dspring-boot.run.arguments=/var/folders/q1/pcz3yx4x6j768w01jmm2py_h0000gn/T/acquire-1-3.json
 ```
 
  * Launch from a reusable self-contained JAR:  
@@ -39,6 +41,14 @@ java -jar target/AcquireBanker.jar
 Optionally you can pass a ```SAVEGAME``` as first runtime argument, to restore a previously saved game.
 
  > Note: ```SAVEGAME``` is the absolute file path of a previously automatically saved game in your ```TMPDIR```. Use ```echo $TMPDIR``` to locate the savegames.
+
+### Phones
+
+Phones can be used to access private player information at:
+`http://127.0.0.1:8080/shares/{player}`
+
+`player` is a number, starting at 0, incrementing by 1 for each player in order.
+There is no access protection.
 
 ## Usage
 
