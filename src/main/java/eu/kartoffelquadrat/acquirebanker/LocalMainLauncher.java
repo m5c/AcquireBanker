@@ -1,13 +1,11 @@
 package eu.kartoffelquadrat.acquirebanker;
 
-import java.io.IOException;
-
 /**
  * this softwoare is intended to support acquire board game geeks to accelerating the games' managament process
  *
  * @author Max Schiedermeier (c) 2011
  */
-public class Main {
+public class LocalMainLauncher {
 
     /**
      * the main class will handle the game commander interaction and care about to comunication with the games logic

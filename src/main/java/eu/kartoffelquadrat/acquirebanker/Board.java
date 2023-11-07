@@ -159,7 +159,7 @@ public class Board implements BoardInterface {
 
     private LinkedList<Integer> getListOfConcernedCompanies(LinkedList<Integer> positions) {
         //i should later get this number from the game object
-        boolean[] visitedCompanies = new boolean[Main.numberOfCompanies];
+        boolean[] visitedCompanies = new boolean[LocalMainLauncher.numberOfCompanies];
 
         //get positions of neighbours
         Iterator<Integer> neighbourIterator = positions.iterator();

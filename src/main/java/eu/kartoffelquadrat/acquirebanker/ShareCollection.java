@@ -48,7 +48,7 @@ public class ShareCollection implements ShareCollectionInterface {
         shares[index] = shares[index] + amount;
 
         //check if operation exceeds bounds
-        if (shares[index] > Main.initialSharesPerCompany) {
+        if (shares[index] > LocalMainLauncher.initialSharesPerCompany) {
             throw new RuntimeException("Seems like the total number of shares increased during the game commence");
         }
     }

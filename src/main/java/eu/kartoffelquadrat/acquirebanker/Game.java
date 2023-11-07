@@ -4,8 +4,6 @@
  */
 package eu.kartoffelquadrat.acquirebanker;
 
-import com.google.gson.Gson;
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -52,7 +50,7 @@ public class Game {
         //set initial share stock
         for (int i = 0; i < companies.length; i++) {
             //12 shares per company - in this case it is legal to use the master method
-            masterShares.increaseMaster(i, Main.initialSharesPerCompany);
+            masterShares.increaseMaster(i, LocalMainLauncher.initialSharesPerCompany);
         }
 
         //allocate companies(first cheap, then normal, then expensive)
@@ -132,7 +130,7 @@ public class Game {
     private void round(int startPlayer) {
         for (currentPlayer = startPlayer; currentPlayer < players.length; currentPlayer++) {
             if (!end) {
-                save(Main.savePath + File.separatorChar + "acquire-" + roundCounter + "-" + (currentPlayer + 1) + ".json");
+                save(LocalMainLauncher.savePath + File.separatorChar + "acquire-" + roundCounter + "-" + (currentPlayer + 1) + ".json");
                 turn(currentPlayer);
             }
         }
@@ -207,8 +205,8 @@ public class Game {
     }
 
     private void sellAllShares() {
-        int[] values = new int[Main.numberOfCompanies];
-        boolean[] activeCompanies = new boolean[Main.numberOfCompanies];
+        int[] values = new int[LocalMainLauncher.numberOfCompanies];
+        boolean[] activeCompanies = new boolean[LocalMainLauncher.numberOfCompanies];
 
         for (int i = 0; i < values.length; i++) {
             //get company values
@@ -234,7 +232,7 @@ public class Game {
 
     private boolean isCompanyGreaterLimit() {
         for (int i = 0; i < companies.length; i++) {
-            if (companies[i].getSize() >= Main.finalLimit) {
+            if (companies[i].getSize() >= LocalMainLauncher.finalLimit) {
                 return true;
             }
         }
@@ -753,5 +751,13 @@ public class Game {
         } catch (IOException e) {
             throw new RuntimeException("Unable to write savegame to: " + path);
         }
+    }
+
+    public PlayerInterface[] getPlayers() {
+        return players;
+    }
+
+    public String[] getCompanyNames() {
+        return companyNames;
     }
 }

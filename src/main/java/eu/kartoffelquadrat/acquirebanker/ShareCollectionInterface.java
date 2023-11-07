@@ -13,7 +13,7 @@ package eu.kartoffelquadrat.acquirebanker;
  */
 public interface ShareCollectionInterface {
 
-    //tells how many shares of the specified type are in possesion
+    //tells how many shares of the specified type are in possession
     public int getNumberOfSharesForIndex(int index);
 
     //increases number of specified share index by specified number

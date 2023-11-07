@@ -98,7 +98,7 @@ public class Player implements PlayerInterface {
 
     public void sellAllShares(int[] values, boolean[] activeCompanies) {
         //System.out.println("sell all shares called");
-        for (int companyIndex = 0; companyIndex < Main.numberOfCompanies; companyIndex++) {
+        for (int companyIndex = 0; companyIndex < LocalMainLauncher.numberOfCompanies; companyIndex++) {
             if (activeCompanies[companyIndex]) {
                 //System.out.println("company "+companyIndex+" sold");
                 int sharesForIndex = ownedShares.getNumberOfSharesForIndex(companyIndex);
